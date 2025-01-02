@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import MyContext from './MyContext'
 function MyState(props) {
-   const [mode,setMode] = useState('light');
+   const [mode,setMode] = useState('dark');
    const toggleMode = () => {
     if(mode === 'light'){
         setMode('dark');
