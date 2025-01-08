@@ -1,9 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import MyContext from '../../Context/data/MyContext'
+import Layout from '../../components/Layout/Layout'
+import HeroforAllproduct from './HeroforAllproduct'
+import Filter from '../../components/filter/Filter'
 
 function Allproduct() {
-  return (
-    <div>Allproduct</div>
-  )
+    return (
+      <Layout>
+        <HeroforAllproduct/>
+      </Layout>
+    )
 }
+
 
 export default Allproduct
