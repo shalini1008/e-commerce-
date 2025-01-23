@@ -63,7 +63,6 @@ function DashboardTab() {
                 </button>
               </Tab>
             </TabList>
-            {/* product  */}
             <TabPanel>
               <div className="  px-4 md:px-0 mb-16">
                 <h1
@@ -145,7 +144,11 @@ function DashboardTab() {
                             scope="row"
                             className="px-6 py-4 font-medium text-black whitespace-nowrap"
                           >
-                            <img className="w-16" src={imageUrl} alt="img" />
+                            <img
+                              className="w-16 h-16 object-cover rounded"
+                              src={imageUrl}
+                              alt="img"
+                            />
                           </th>
                           <td
                             className="px-6 py-4 text-black"
