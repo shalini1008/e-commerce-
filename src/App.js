@@ -27,9 +27,10 @@ function App() {
         <Route path="/siginnup" element={<Siginup/>}/>
         <Route path="/*" element={<Nopage/>}/>
         <Route path="/productinfo/:id" element={<ProductInfo/>}/>
-        <Route path="/Addproduct" element={<AddProduct />}></Route>
-        <Route path="/updateproduct" element={
-          <UpdateProduct/>}></Route>
+        <Route path="/Addproduct" element={<ProtectedRoutesForAdmin><AddProduct /></ProtectedRoutesForAdmin>}></Route>
+        <Route path="/updateproduct" element={<ProtectedRoutesForAdmin>
+          <UpdateProduct/>
+          </ProtectedRoutesForAdmin>}></Route>
       </Routes>
     </Router>
     </MyState>
@@ -44,14 +45,14 @@ export const ProtectedRoutes = ({children}) => {
     return <Navigate to='/login'/>
   }
 }
-// export const ProtectedRoutesForAdmin = ({children}) => {
-//   const admin = JSON.parse(localStorage.getItem('user'))
-//   console.log(admin.user.email)
-//   if(admin.user.email==='shalini7217625537@gmail.com'){
-//     return children
-//   }else{
-//     toast.error('You are not Admin');
-//     return <Navigate to='/login'/>
-//   }
-// }
+export const ProtectedRoutesForAdmin = ({children}) => {
+  const admin = JSON.parse(localStorage.getItem('user'))
+  console.log(admin.user.email)
+  if(admin.user.email==='shalini7217625537@gmail.com'){
+    return children
+  }else{
+    toast.error('You are not Admin');
+    return <Navigate to='/login'/>
+  }
+}
 export default App
